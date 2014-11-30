@@ -1,0 +1,54 @@
+#! /usr/bin/env python
+
+import os
+import csv
+import sys
+import string
+import shutil
+
+
+shutil.copy('Employee_Info_sub.csv', 'Database/Employee_Info_sub.csv')
+os.chdir('Database')
+with open ('Employee_Info_sub.csv', 'rb') as csvfile:
+    employee_info = csv.reader(csvfile, delimiter=',')
+    num_access_lines = 0
+    for col in employee_info:
+        emp_id = col[0].strip()
+        os.chdir(emp_id)
+        os.chdir('Access_Log')
+        if os.path.exists('access_log.txt'):
+            with  open('access_log.txt', 'rb') as f:
+                for line in f:
+                    num_access_lines = num_access_lines + 1
+        os.chdir('..')
+        os.chdir('..')
+    print num_access_lines
+                
+
+#shutil.copy('Citizenship_sub.csv', 'Database/Citizenship_sub.csv')
+#os.chdir('Database')
+#with open ('Citizenship_sub.csv', 'rb') as csvfile:
+#    citizenship = csv.reader(csvfile, delimiter=',')
+#    for col in citizenship:
+#        employee = col[0]
+#        employee = col[0].strip()
+#        citizen_status = col[1]
+#        #print os.getcwd()
+#        os.chdir(employee)
+#        os.chdir('Citizenship')
+#        with open ('citizenship.txt', 'rb') as f:
+#            field = [x for x in f.read().split(", ") if x != ""]
+#            for i in range(0, 2):
+#                field[i] = field[i].strip()
+#                for key in sorted(Citizenship_Dict):
+#                    if key == field[i]:
+#                        orig_stdout = sys.stdout
+#                        out = file('score.txt', 'a')
+#                        sys.stdout = out
+#                        print employee,
+#                        print ":",
+#                        print Citizenship_Dict[key]
+#                        sys.stdout = orig_stdout
+#                        out.close()
+#        os.chdir('..')
+#        os.chdir('..')
