@@ -1,10 +1,10 @@
 #! /usr/bin/env python 
 
 #version 0.2.
-#***********************************************************************************************************************************************
+#*************************************************************************************
 # Scoring risk levels of the employee
 #The code should be ran from the directory where the Database has been stored
-#***********************************************************************************************************************************************
+#*************************************************************************************
 #Importing modules
 
 import csv
@@ -13,7 +13,7 @@ import sys
 import shutil
 import datetime
 
-#***********************************************************************************************************************************************
+#*************************************************************************************
 #The dictionaries assign score values to different employee citizenship and information attributes
 
 Citizenship_Dict = {'Citizen of Costa Rica' : 15, 'Citizen of Eritrea' : 10, 'Citizen of Nepal' : 20, 'Citizen of Peru' : 20, 'Citizen of Sweden' : 30, 'Citizen of United States' : 20 }
@@ -25,7 +25,7 @@ Gender_Dict = {'F' : 45, 'M' : 55}
 Age_Dict = {'20-30' : 15, '30-40': 25, '40-50' : 25, '50-60' : 20, '60-70' : 10, '70-80' : 5}
 
 
-#***********************************************************************************************************************************************
+#*******************************************************************************
 #Initializes the text files that will store each employee's score
 #Prevents the appending of repeated information every time the code is implemented
 shutil.copy('Employee_Info_sub.csv', 'Database/Employee_Info_sub.csv') #moves CSV info file to the 'Database' directory
@@ -68,7 +68,7 @@ with open ('Employee_Info_sub.csv', 'rb') as csvfile:     #Opens the CSV file
 os.chdir('..')                                     #Return to the main directory from which code was executed
  
 
-#***********************************************************************************************************************************************
+#**************************************************************************************
 #Score generation of the scores according to info and citizenship
 
 shutil.copy('Citizenship_sub.csv', 'Database/Citizenship_sub.csv')
@@ -108,7 +108,7 @@ with open ('Citizenship_sub.csv', 'rb') as csvfile:
             os.chdir('..')
 os.remove('Citizenship_sub.csv')
        
-#***********************************************************************************************************************************************
+#**************************************************************************************
 #shutil.copy('Employee_Info_sub.csv', 'Database/Employee_Info_sub.csv')
 
 with open ('Employee_Info_sub.csv', 'rb') as csvfile:
